@@ -14,6 +14,7 @@ RUN set -eux; apk add --no-cache ca-certificates build-base; apk add git linux-h
 # Download go dependencies
 WORKDIR /osmosis
 COPY go.* .
+COPY ics23/go/go.mod ./ics23/go/go.mod
 RUN --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=cache,target=/root/go/pkg/mod \
     go mod download
